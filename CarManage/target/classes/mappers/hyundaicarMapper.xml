@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.tukorea.myweb.mapper.HyundaicarMapper">
+
+	<select id="getTime" resultType="string">
+		select now()
+	</select>
+
+	<insert id="carInsert">
+		INSERT INTO hyundaicar_free (carModel, carColor, carPrice, carFuel,
+		carFuelefficiency, carStock, carOutput, carEngine) VALUES
+		(#{carModel}, #{carColor}, #{carPrice}, #{carFuel},
+		#{carFuelefficiency}, #{carStock}, #{carOutput}, #{carEngine})
+	</insert>
+
+	<select id="selectByCarId"
+		resultType="org.tukorea.myweb.domain.HyundaiCarVO">
+		select * from hyundaicar_free where carId = #{carId}
+	</select>
+
+	<select id="selectCarAll"
+		resultType="org.tukorea.myweb.domain.HyundaiCarVO">
+		select * from hyundaicar_free
+	</select>
+	
+	<select id="selectCarStock"
+		resultType="org.tukorea.myweb.domain.HyundaiCarVO">
+		select * from hyundaicar_free where carStock > 0
+	</select>
+
+	<update id="carUpdate">
+		UPDATE hyundaicar_free SET carId =#{carId}, carModel =#{carModel}, carColor
+		=#{carColor}, carPrice =#{carPrice},
+		carFuel =#{carFuel}, carFuelefficiency =#{carFuelefficiency}, carStock
+		=#{carStock}, carOutput =#{carOutput}, carEngine =#{carEngine}
+		where carId = #{carId}
+	</update>
+
+	<delete id="carDelete">
+		delete from hyundaicar_free where carId = #{carId}
+	</delete>
+
+	<update id="carStockDown">
+		UPDATE hyundaicar_free SET carStock = carStock-1
+		where carId = #{carId}
+	</update>
+</mapper>  

@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+header {
+	margin: 20px 10px 40px 10px;
+	font-family: "Freestyle Script", "Mistral";
+	font-size: 50px;
+	text-align: center;
+}
+
+body {
+	color: black;
+	font-family: '맑은 고딕', '돋움', '고딕';
+}
+
+table {
+	width: 70%;
+	border-top: 1px solid #444444;
+	border-collapse: collapse;
+}
+
+th, td {
+	font-size: 10pt;
+	border-bottom: 1px solid #444444;
+	height: 30px;
+	padding: 5px;
+	background-color: whitesmoke;
+	text-align: center;
+}
+
+th {
+	background-color: #0894A1;
+}
+
+td {
+	background-color: #B8E0E4;
+}

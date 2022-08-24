@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.tukorea.myweb.mapper.memberMapper">
+
+	<insert id="memberInsert">
+		INSERT INTO member_free (memberMobile, memberName, memberDivision,
+		memberEmail) VALUES
+		(#{memberMobile}, #{memberName}, #{memberDivision}, #{memberEmail})
+	</insert>
+
+	<select id="selectMemberAll"
+		resultType="org.tukorea.myweb.domain.MemberVO">
+		select * from member_free
+	</select>
+
+	<update id="memberUpdate">
+		UPDATE member_free SET memberMobile =#{memberMobile}, memberName
+		=#{memberName}, memberDivision =#{memberDivision}, memberEmail
+		=#{memberEmail}
+		where memberMobile = #{memberMobile}
+	</update>
+
+	<delete id="memberDelete">
+		delete from member_free where memberMobile =
+		#{memberMobile}
+	</delete>
+
+	<select id="selectByMemberId"
+		resultType="org.tukorea.myweb.domain.MemberVO">
+		select * from member_free where memberMobile = #{memberMobile}
+	</select>
+</mapper>  

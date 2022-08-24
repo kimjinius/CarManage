@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.tukorea.myweb.mapper.saleMapper">
+
+	<select id="getTime" resultType="string">
+		select now()
+	</select>
+
+	<insert id="saleInsert">
+		INSERT INTO sale_free (saleCarId, saleCarModel,
+		saleMemberMobile,saleMemberName, saleCarNumber)
+		VALUES (#{saleCarId}, #{saleCarModel}, #{saleMemberMobile},
+		#{saleMemberName}, #{saleCarNumber})
+	</insert>
+
+	<select id="selectSaleAll"
+		resultType="org.tukorea.myweb.domain.SaleVO">
+		select * from sale_free
+	</select>
+
+	<update id="saleCarNumUpdate">
+		UPDATE sale_free SET saleCarNumber =#{saleCarNumber}
+		where saleId = #{saleId}
+	</update>
+</mapper>  
